@@ -24,7 +24,7 @@ api:
  
 ota:
 dashboard_import:
-  package_import_url: github://zuidwijk/esphome-doorbell/doorbell.yaml@main
+  package_import_url: github://tygozwolle/esphome-doorbell/doorbell.yaml@main
 
 time:
   - platform: homeassistant
