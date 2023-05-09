@@ -23,9 +23,6 @@ logger:
 api:
  
 ota:
-
-improv_serial:
-
 dashboard_import:
   package_import_url: github://zuidwijk/esphome-doorbell/doorbell.yaml@main
 
