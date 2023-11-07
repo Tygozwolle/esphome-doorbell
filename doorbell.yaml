@@ -66,6 +66,11 @@ switch:
   - platform: restart
     name: "Doorbell Restart"
   - platform: template
+    name: "internal switch doorbell"
+    id: "switchtest"
+    internal: true
+    
+  - platform: template
     name: Doorbell Chime Active
     id: chime_active
     restore_mode: disabled
@@ -81,6 +86,9 @@ switch:
       return id(chime);
      
 binary_sensor:
+  - platform: template
+    name: "homekit doorbell"
+    
   - platform: gpio
     pin:
       number: D5
