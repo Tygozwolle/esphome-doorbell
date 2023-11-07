@@ -83,6 +83,8 @@ switch:
 binary_sensor:
   - platform: template
     name: "homekit doorbell"
+    filters:
+      - delayed_off: 60s
     lambda: |-
       if (id(relay).state == true) {
         return true;
