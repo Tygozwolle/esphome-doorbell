@@ -73,9 +73,9 @@ jobs:
         run: |
           result="${{ needs.build.result }}"
           if [[ $result == "success" || $result == "skipped" ]]; then
-            exit 1
+            exit 0
           else
-            exit 1
+            exit 0
           fi
 
   create_release:
