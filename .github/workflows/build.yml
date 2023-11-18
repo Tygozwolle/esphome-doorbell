@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: build doorbell.yaml
-        uses: esphome/build-action@v1
+        uses: esphome/build-action@v1.8.0
         with:
           yaml_file: doorbell.yaml
           name: "doorbel.bin"
