@@ -55,11 +55,11 @@ jobs:
           mkdir output/
           mv "${{ steps.firmware-build.outputs.name }}" output/
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: workspace_artifacts
-          path: ${{ github.workspace }}
+#      - name: Upload Build Artifacts
+        #uses: actions/upload-artifact@v3
+        #with:  
+          #name: workspace_artifacts
+          #path: ${{ github.workspace }}
 
 
       - name: Upload artifact
