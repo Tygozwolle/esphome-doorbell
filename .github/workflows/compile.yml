@@ -25,7 +25,7 @@ jobs:
       - name: Find firmware files
         id: files-array 
         run: |
-          files=$(echo -n "$(ls *doorbell.yaml)" | jq -Rcns 'input | . / "\n"')
+          files=$(echo -n "$(ls *.yaml)" | jq -Rcns 'input | . / "\n"')
           echo "files=$files" >> $GITHUB_OUTPUT
   
   build:
@@ -102,7 +102,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          fail_on_unmatched_files: true
+          fail_on_unmatched_files: false
           generate_release_notes: true
           files: |
             output/**/*.bin
