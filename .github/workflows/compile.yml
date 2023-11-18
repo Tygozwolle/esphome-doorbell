@@ -73,7 +73,7 @@ jobs:
         run: |
           result="${{ needs.build.result }}"
           if [[ $result == "success" || $result == "skipped" ]]; then
-            exit 0
+            exit 1
           else
             exit 1
           fi
