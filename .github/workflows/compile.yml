@@ -86,11 +86,11 @@ jobs:
       contents: write
 
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: firmwares
-          path: output
+#      - name: Download artifacts
+ #       uses: actions/download-artifact@v3
+  #      with:
+   #       name: firmwares
+    #      path: output
 
  #     - name: Zip firmwares
   #      run: |
