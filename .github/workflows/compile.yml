@@ -80,7 +80,6 @@ jobs:
 
   create_release:
     name: Create Release
-    if: startsWith(github.ref, 'refs/tags/')
     needs: [build]
     runs-on: ubuntu-latest
     permissions:
@@ -102,7 +101,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          fail_on_unmatched_files: false
+          fail_on_unmatched_files: true
           generate_release_notes: true
           files: |
             output/**/*.bin
