@@ -31,3 +31,47 @@ jobs:
         with:
           yaml_file: doorbell.yaml
           name: "doorbel.bin"
+results:
+    name: All firmwares compiled
+    if: ${{ always() }}
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check firmware build
+        run: |
+          result="${{ needs.build.result }}"
+          if [[ $result == "success" || $result == "skipped" ]]; then
+            exit 0
+          else
+            exit 1
+          fi
+    create_release:
+      name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      needs: [build]
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+
+      steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: firmwares
+          path: output
+
+      - name: Zip firmwares
+        run: |
+          cd output
+          zip -r -q firmwares.zip .
+          
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          files: |
+            output/**/*.bin
+            output/firmwares.zip
