@@ -30,3 +30,4 @@ jobs:
         uses: esphome/build-action@v1
         with:
           yaml_file: doorbell.yaml
+          name: "doorbel.bin"
