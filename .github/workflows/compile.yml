@@ -25,7 +25,7 @@ jobs:
       - name: Find firmware files
         id: files-array 
         run: |
-          files=$(echo -n "$(ls doorbell.yaml)" | jq -Rcns 'input | . / "\n"')
+          files=$(echo -n "$(ls *.yaml)" | jq -Rcns 'input | . / "\n"')
           echo "files=$files" >> $GITHUB_OUTPUT
   
   build:
